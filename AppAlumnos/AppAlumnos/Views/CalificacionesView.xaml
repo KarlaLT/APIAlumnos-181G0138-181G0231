@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AppAlumnos.ViewModel"
+             x:Class="AppAlumnos.Views.CalificacionesView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="3"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#B0C4DE">
+            <Label Text="Registro de calificaciones"
+                FontAttributes="Bold" FontSize="38"
+                HorizontalOptions="FillAndExpand" Padding="15" Background="#F0E68C"/>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Margin="0" Grid.ColumnSpan="5" BackgroundColor="#AFEEEE">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Asignatura"></Label>
+                    <Label Grid.Column="2" Text="Promedio final"></Label>
+                    <Grid Grid.Column="1" Padding="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label BackgroundColor="#AFEEEE" Padding="0" Grid.ColumnSpan="3" FontSize="15" Text="Periodo de evaluación"></Label>
+                        <Label Padding="0" FontSize="15" Text="1er" Grid.Row="1" Grid.Column="0"></Label>
+                        <Label Padding="0" FontSize="15" Text="2do" Grid.Row="1" Grid.Column="1"></Label>
+                        <Label Padding="0" Text="3er" FontSize="15" Grid.Row="1" Grid.Column="2"></Label>
+                    </Grid>
+                </Grid>
+                <Label BackgroundColor="#FFE4B5" Grid.Row="1">Español</Label>
+                <Label BackgroundColor="#F0E68C" Grid.Row="2">Matemáticas</Label>
+                <Label BackgroundColor="#D8BFD8" Grid.Row="3">Ciencias Naturales</Label>
+
+                <Label BackgroundColor="#98FB98" Grid.Row="1" Grid.Column="1">10</Label>
+                <Label BackgroundColor="#98FB98" Grid.Row="2" Grid.Column="1">8</Label>
+                <Label BackgroundColor="#98FB98" Grid.Row="3" Grid.Column="1">9</Label>
+
+                <Label BackgroundColor="#98FB98" Grid.Row="1" Grid.Column="2">10</Label>
+                <Label BackgroundColor="#98FB98" Grid.Row="2" Grid.Column="2">8</Label>
+                <Label BackgroundColor="#98FB98" Grid.Row="3" Grid.Column="2">9</Label>
+
+                <Label BackgroundColor="#98FB98" Grid.Row="1" Grid.Column="3">10</Label>
+                <Label BackgroundColor="#98FB98" Grid.Row="2" Grid.Column="3">8</Label>
+                <Label BackgroundColor="#98FB98" Grid.Row="3" Grid.Column="3">9</Label>
+
+                <Label BackgroundColor="#000080" TextColor="White" Grid.Row="1" Grid.Column="4">10</Label>
+                <Label BackgroundColor="#000080" TextColor="White" Grid.Row="2" Grid.Column="4">8</Label>
+                <Label BackgroundColor="#000080" TextColor="White" Grid.Row="3" Grid.Column="4">9</Label>
+            </Grid>
+
+            <Label Margin="0,20,0,0">Nombre del alumno:</Label>
+            <Label TextColor="#FF6347">Karla Verónica López Tovar</Label>
+
+            <Label>Escuela:</Label>
+            <Label TextColor="#FF6347">Julia Tapia Flores</Label>
+            <Label>Grupo:</Label>
+            <Label TextColor="#008080">3° "B"</Label>
+
+            <Button Text="Salir" HorizontalOptions="End" VerticalOptions="EndAndExpand" Margin="10" 
+                    BackgroundColor="#3CB371"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

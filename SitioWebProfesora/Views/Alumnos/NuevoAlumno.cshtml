@@ -1,0 +1,129 @@
+﻿@using SitioWebProfesora.Controllers;
+@using SitioWebProfesora.Models;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model Alumno
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>3°"B"</title>
+    <style>
+        html {
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            padding: 0;
+            background-color: #FFFACD;
+            margin: 0;
+        }
+
+        header {
+            background-color: lightgreen;
+            margin: 0;
+            color: white;
+            width: 100vw;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            display: block;
+            margin: 0;
+            font-size: larger;
+            color: white;
+            padding: 15px;
+            width: 200px;
+            text-align: center;
+            margin-left: 1100px;
+            background-color: #FA8072;
+        }
+
+            a:hover {
+                background-color: skyblue;
+                color: black;
+            }
+
+        header h1, header h3 {
+            padding: 5px;
+        }
+
+        .orgAlumno {
+            background-color: darksalmon;
+        }
+
+        form {
+            background-color: mistyrose;
+            padding: 20px;
+            width: 400px;
+            height: 310px;
+            border: double;
+            margin-left: 400px;
+        }
+
+            form label, input {
+                font-size: 17px;
+                text-align: center;
+                padding: 5px;
+                margin: 10px;
+                color: dimgray;
+                margin-right: 0;
+            }
+
+            form b {
+                font-size: 20px;
+                color: dimgrey;
+                text-align: center;
+            }
+
+            form .btn, .btn2 {
+                text-align: center;
+                padding: 10px;
+                background-color: darksalmon;
+                border: none;
+                color: white;
+            }
+
+                .btn:hover, .btn2:hover {
+                    color: salmon;
+                    background-color: whitesmoke;
+                }
+
+            form .btn2 {
+                margin-left: 140px;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Registro de calificaciones 3°"B"</h1>
+        <h3>Escuela primaria Julia Tapia Flores</h3>
+    </header>
+    <nav>
+        <a asp-action="Index">Regresar</a>
+    </nav>
+    <main>
+        <form class="add" method="post">
+            <b>Nuevo alumno</b><br />
+            <label>Nombre:</label>
+            <input asp-for="Nombre" type="text" /><br />
+
+            <label>Apellidos:</label>
+            <input asp-for="Apellido" type="text" /><br />
+            <b>Datos de acceso para el padre de familia</b><br />
+            <label>Usuario:</label>
+            <input asp-for="Usuario" type="text" /><br />
+
+            <label>Contraseña:</label>
+            <input asp-for="Password" type="text" /><br />
+
+            <input class="btn2" type="submit" value="Registrar" asp-action="Add" />
+            <div class="error">
+                @Html.ValidationSummary()
+            </div>
+        </form>
+    </main>
+</body>
+</html>

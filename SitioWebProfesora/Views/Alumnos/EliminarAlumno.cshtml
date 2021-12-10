@@ -1,0 +1,188 @@
+﻿@using SitioWebProfesora.Models;
+@using SitioWebProfesora.Controllers;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model Alumno
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>3°"B"</title>
+<style>
+    html {
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        padding: 0;
+        background-color: #FFFACD;
+        margin: 0;
+    }
+
+    header {
+        background-color: lightgreen;
+        margin: 0;
+        color: white;
+        width: 100vw;
+        text-align: center;
+    }
+
+    a {
+        text-decoration: none;
+        display: block;
+        margin: 0;
+        font-size: larger;
+        color: white;
+        padding: 15px;
+        width: 200px;
+        text-align: center;
+        margin-left: 1100px;
+        background-color: #FA8072;
+    }
+
+        a:hover {
+            background-color: skyblue;
+            color: black;
+        }
+
+    header h1, header h3 {
+        padding: 5px;
+    }
+
+    .orgAlumno {
+        background-color: darksalmon;
+    }
+
+    form {
+        background-color: mistyrose;
+        padding: 20px;
+        width: 400px;
+        height: 370px;
+        border: double;
+        margin-left: 450px;
+    }
+
+        form label, input {
+            font-size: 17px;
+            text-align: center;
+            padding: 5px;
+            margin: 10px;
+            color: dimgray;
+            margin-right: 0;
+        }
+
+        form b {
+            font-size: 20px;
+            color: dimgrey;
+            text-align: center;
+        }
+
+        form .btn, .btn2 {
+            text-align: center;
+            padding: 10px;
+            background-color: darksalmon;
+            border: none;
+            color: white;
+        }
+
+            .btn:hover, .btn2:hover {
+                color: salmon;
+                background-color: whitesmoke;
+            }
+
+        form .btn2 {
+            margin-left: 150px;
+        }
+
+    #ver {
+        background-color: lightgreen;
+        padding: 5px, 8px;
+        width: 200px;
+        margin: 10px, 0;
+        margin-top: 10px;
+    }
+
+    table th, td {
+        font-size: 16px;
+        text-align: center;
+        background-color: cornflowerblue;
+        padding: 10px;
+        color: white;
+        font-weight: 400;
+        width: 200px;
+    }
+
+    table td {
+        font-size: 16px;
+        background-color: yellow;
+        color: dimgray;
+    }
+
+    table {
+        margin-left: 15px;
+        margin: auto;
+        border: thin;
+    }
+
+    h4 {
+        text-align: center;
+        font-size: 23px;
+        color: dimgray;
+    }
+
+    #eliminar {
+        background-color: lightgray;
+        color: lightgreen;
+        width: 300px;
+        height: 170px;
+        ;
+    }
+
+        #eliminar b, #eliminar label {
+            color: black;
+            font-size: 25px;
+            text-align: center;
+            font-weight: 500;
+            margin-left: 20px;
+        }
+
+        #eliminar label {
+            margin-left: 0;
+        }
+
+    .btnEl {
+        margin-left: 100px;
+        margin-top: 20px;
+        text-align: center;
+        padding: 10px;
+        background-color: lightgreen;
+        border: none;
+        color: white;
+    }
+
+        .btnEl:hover {
+            color: salmon;
+            background-color: whitesmoke;
+        }
+</style>
+</head>
+<body>
+    <header>
+        <h1>Registro de calificaciones 3°"B"</h1>
+        <h3>Escuela primaria Julia Tapia Flores</h3>
+    </header>
+    <nav>
+        <a asp-action="Index">Regresar</a>
+    </nav>
+    <main>
+        <form id="eliminar" method="post">
+            <b>¿Seguro que desea eliminar al alumno</b>
+            <label asp-for="Nombre">@Model.Nombre</label>
+            <label asp-for="Apellido">@Model.Apellido</label>
+            <b>?</b><br />
+            <input class="btnEl" type="submit" value="Confirmar" asp-route-id="@Model.IdAlumno" asp-action="Delete2" />
+        </form>
+    </main>
+
+</body>
+</html>

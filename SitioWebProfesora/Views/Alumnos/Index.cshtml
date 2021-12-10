@@ -1,0 +1,242 @@
+﻿@using SitioWebProfesora.Models;
+@using SitioWebProfesora.Controllers;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+@model IEnumerable<Alumno>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>3°"B"</title>
+  <style>
+      html {
+          padding: 0;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+     
+      body {
+          padding: 0;
+          background-color: #FFFACD;
+          margin: 0;
+      }
+
+      header {
+          background-color: lightgreen;
+          margin: 0;
+          color: white;
+          width: 100vw;
+          text-align: center;
+      }
+
+      a {
+          text-decoration: none;
+          display: block;
+          margin: 0;
+          font-size: larger;
+          color: white;
+          padding: 15px;
+          width: 200px;
+          text-align: center;
+          margin-left: 1100px;
+          background-color: #FA8072;
+      }
+
+          a:hover {
+              background-color: skyblue;
+              color: black;
+          }
+
+      header h1, header h3 {
+          padding: 5px;
+      }
+      #organizacion {
+          display: flex;
+      }
+      #orgAlumno{
+          flex-direction:column;
+      }
+      #datos {
+          flex-direction: column;
+          background-color: thistle;
+          margin: 20px;
+          border: double;
+          padding: 20px;
+          float: left;
+          width: 800px;
+          height: 260px;
+          margin-left:200px;
+      }
+
+          #datos a {
+              margin-left: 0;
+              width: 100px;
+              padding: 3px;
+              font-size: 14px;
+              display: block;
+              text-decoration: none;
+              float: left;
+              margin: 5px;
+              background-color: cornflowerblue;
+          }
+
+          #datos p, #datos b, #datos h4 {
+              font-size: 20px;
+              color: darkorange;
+              text-align: center;
+          }
+
+          #datos h4 {
+              color: dimgray;
+          }
+
+      form {
+          background-color: mistyrose;
+          padding: 20px;
+          width: 400px;
+          height: 370px;
+          border: double;
+          margin-left: 450px;
+      }
+
+          form label, input {
+              font-size: 17px;
+              text-align: center;
+              padding: 5px;
+              margin: 10px;
+              color: dimgray;
+              margin-right: 0;
+          }
+
+          form b {
+              font-size: 20px;
+              color: dimgrey;
+              text-align: center;
+          }
+
+          form .btn, .btn2 {
+              text-align: center;
+              padding: 10px;
+              background-color: darksalmon;
+              border: none;
+              color: white;
+          }
+
+              .btn:hover, .btn2:hover {
+                  color: salmon;
+                  background-color: whitesmoke;
+              }
+
+          form .btn2 {
+              margin-left: 150px;
+          }
+
+      #ver {
+          background-color: lightgreen;
+          padding: 5px, 8px;
+          width: 200px;
+          margin: 10px, 0;
+          margin-top: 10px;
+      }
+
+      table th, td {
+          font-size: 16px;
+          text-align: center;
+          background-color: cornflowerblue;
+          padding: 10px;
+          color: white;
+          font-weight: 400;
+          width: 200px;
+      }
+
+      table td {
+          font-size: 16px;
+          background-color: yellow;
+          color: dimgray;
+      }
+
+      table {
+          margin-left: 15px;
+          margin: auto;
+          border: thin;
+      }
+
+      h4 {
+          text-align: center;
+          font-size: 23px;
+          color: dimgray;
+      }
+
+      #eliminar {
+          background-color: lightgray;
+          color: lightgreen;
+          width: 300px;
+          height: 170px;
+      }
+
+          #eliminar b, #eliminar label {
+              color: black;
+              font-size: 25px;
+              text-align: center;
+              font-weight: 500;
+              margin-left: 20px;
+          }
+
+          #eliminar label {
+              margin-left: 0;
+          }
+
+      .btnEl {
+          margin-left: 100px;
+          margin-top: 20px;
+          text-align: center;
+          padding: 10px;
+          background-color: lightgreen;
+          border: none;
+          color: white;
+      }
+
+          .btnEl:hover {
+              color: salmon;
+              background-color: whitesmoke;
+          }
+
+      #imagen {
+          height: 200px;
+          float: left;
+      }
+  </style>
+</head>
+<body>
+    <header>
+        <h1>Registro de calificaciones 3°"B"</h1>
+        <h3>Escuela primaria Julia Tapia Flores</h3>
+    </header>
+    <nav>
+        <a asp-action="AddNew">Nuevo alumno</a>
+    </nav>
+    <main>
+        @foreach (var alumno in Model)
+        {
+        <div id="organizacion">
+            <section id="orgAlumno">
+                <div id="datos">
+                    <img id="imagen" src="https://cdn-icons-png.flaticon.com/512/1046/1046270.png" />
+                    <p>
+                        Nombre:  <b>@alumno.Nombre</b> <br />
+                        Apellidos:  <b>@alumno.Apellido</b> <br />
+
+                    </p>
+                    <h4>Datos de acceso para el padre de familia</h4>
+                    <p>
+                        Usuario:  <b>@alumno.Usuario</b> <br />
+                        Contraseña:  <b>@alumno.Password</b> <br />
+                    </p>
+                    <a asp-action="Edit" asp-route-id="@alumno.IdAlumno">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@alumno.IdAlumno">Eliminar</a>
+                </div>
+            </section>
+        </div>
+        }
+    </main>
+</body>
+</html>

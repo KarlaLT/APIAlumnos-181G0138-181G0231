@@ -1,0 +1,331 @@
+﻿@using SitioWebProfesora.Controllers;
+@using SitioWebProfesora.Models;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model Alumno
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>3°"B"</title>
+<style>
+    html {
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        padding: 0;
+        background-color: #FFFACD;
+        margin: 0;
+    }
+
+    header {
+        background-color: lightgreen;
+        margin: 0;
+        color: white;
+        width: 100vw;
+        text-align: center;
+    }
+
+    a {
+        text-decoration: none;
+        display: block;
+        margin: 0;
+        font-size: larger;
+        color: white;
+        padding: 15px;
+        width: 200px;
+        text-align: center;
+        margin-left: 1100px;
+        background-color: #FA8072;
+    }
+
+        a:hover {
+            background-color: skyblue;
+            color: black;
+        }
+
+    header h1, header h3 {
+        padding: 5px;
+    }
+
+    #organizacion {
+        display: flex;
+    }
+
+    #datos {
+        flex-direction: column;
+        background-color: thistle;
+        margin: 20px;
+        border: double;
+        padding: 20px;
+        float: left;
+        width: 600px;
+        height: 260px;
+    }
+
+        #datos a {
+            margin-left: 0;
+            width: 100px;
+            padding: 3px;
+            font-size: 14px;
+            display: block;
+            text-decoration: none;
+            float: left;
+            margin: 5px;
+            background-color: cornflowerblue;
+        }
+
+        #datos p, #datos b, #datos h4 {
+            font-size: 20px;
+            color: darkorange;
+            text-align: center;
+        }
+
+        #datos h4 {
+            color: dimgray;
+        }
+
+    form {
+        background-color: mistyrose;
+        padding: 20px;
+        width: 1300px;
+        height: 780px;
+        border: double;
+        margin-top: 20px;
+    }
+
+        form label, input {
+            font-size: 17px;
+            text-align: center;
+            padding: 5px;
+            margin: 10px;
+            color: dimgray;
+            margin-right: 0;
+        }
+
+        form label, form b {
+            margin-left: 400px;
+        }
+
+        form b {
+            font-size: 20px;
+            color: dimgrey;
+            text-align: center;
+        }
+
+        form .btn, .btn2 {
+            text-align: center;
+            padding: 10px;
+            background-color: darksalmon;
+            border: none;
+            color: white;
+        }
+
+            .btn:hover, .btn2:hover {
+                color: salmon;
+                background-color: whitesmoke;
+            }
+
+        form .btn2 {
+            margin-left: 150px;
+        }
+
+    #ver {
+        background-color: lightgreen;
+        padding: 5px, 8px;
+        width: 200px;
+        margin: 10px, 0;
+        margin-top: 10px;
+    }
+
+    table th, td {
+        font-size: 16px;
+        text-align: center;
+        background-color: cornflowerblue;
+        padding: 10px;
+        color: white;
+        font-weight: 400;
+        width: 100px;
+    }
+
+    table td {
+        font-size: 16px;
+        background-color: yellow;
+        color: dimgray;
+    }
+
+    table {
+        margin-left: 15px;
+        margin: auto;
+        border: thin;
+    }
+
+    h4 {
+        text-align: center;
+        font-size: 23px;
+        color: dimgray;
+    }
+
+    #eliminar {
+        background-color: lightgray;
+        color: lightgreen;
+        width: 300px;
+        height: 170px;
+    }
+
+        #eliminar b, #eliminar label {
+            color: black;
+            font-size: 25px;
+            text-align: center;
+            font-weight: 500;
+            margin-left: 20px;
+        }
+
+        #eliminar label {
+            margin-left: 0;
+        }
+
+    .btnEl {
+        margin-left: 100px;
+        margin-top: 20px;
+        text-align: center;
+        padding: 10px;
+        background-color: lightgreen;
+        border: none;
+        color: white;
+    }
+
+        .btnEl:hover {
+            color: salmon;
+            background-color: whitesmoke;
+        }
+
+    #imagen {
+        height: 200px;
+        float: left;
+    }
+
+    #ver {
+        margin-left: 100px;
+        border: none;
+        color: white;
+        padding: 10px;
+    }
+
+    #editar {
+        margin-left: 500px;
+        background-color: lightgreen;
+        padding: 5px, 8px;
+        width: 200px;
+        margin: 10px, 0;
+        margin-top: 10px;
+        border: none;
+        color: white;
+        padding: 10px;
+    }
+
+    form table b {
+        margin-left: 0;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <h1>Registro de calificaciones 3°"B"</h1>
+        <h3>Escuela primaria Julia Tapia Flores</h3>
+    </header>
+    <nav>
+        <a asp-action="Index">Regresar</a>
+
+    </nav>
+    <main>
+        <form class="add" method="post">
+            <div class="formulario">
+                <b>Modificar datos</b><br />
+                <label>No. de lista:</label>
+                <input asp-for="IdAlumno" disabled type="text" /><br />
+                <label>Nombre:</label>
+                <input asp-for="Nombre" type="text" /><br />
+
+                <label>Apellidos:</label>
+                <input asp-for="Apellido" type="text" /><br />
+                <b>Datos de acceso para el padre de familia</b><br />
+                <label>Usuario:</label>
+                <input asp-for="Usuario" type="text" /><br />
+
+                <label>Contraseña:</label>
+                <input asp-for="Password" type="text" /><br />
+                <input type="submit" id="editar" asp-route-id="@Model.IdAlumno" asp-action="Edit2" value="Guardar Todo" />
+            </div>
+            <div>
+                <h4>Calificaciones del alumno</h4>
+
+                <table border="1">
+                    <tr>
+                        <th>Asignatura</th>
+                        <th>Evaluación 1</th>
+                        <th>Evaluación 2</th>
+                        <th>Evaluación 3</th>
+                        <th class="promedio">Promedio</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Español
+                        </td>
+                        <td>
+                            <input type="text" asp-for="EspanolEv1" />
+                        </td>
+                        <td>
+                            <input type="text" asp-for="EspanolEv2" />
+                        </td>
+                        <td>
+                            <input type="text" asp-for="EspanolEv3" />
+                        </td>
+                        <td>
+                            <b class="promedio">@Model.PromEspanol</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Matemáticas
+                        </td>
+                        <td>
+                            <input type="text" asp-for="MatematicasEv1" />
+                        </td>
+                        <td>
+                            <input type="text" asp-for="MatematicasEv2" />
+                        </td>
+                        <td>
+                            <input type="text" asp-for="MatematicasEv3" />
+                        </td>
+                        <td>
+                            <b class="promedio">@Model.PromMate</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Ciencias Naturales
+                        </td>
+                        <td>
+                            <input type="text" asp-for="Cnev1" />
+                        </td>
+                        <td>
+                            <input type="text" asp-for="Cnev2" />
+                        </td>
+                        <td>
+                            <input type="text" asp-for="Cnev3" />
+                        </td>
+                        <td>
+                            <b class="promedio">@Model.PromCn</b>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+
+
+    </main>
+</body>
+</html>   

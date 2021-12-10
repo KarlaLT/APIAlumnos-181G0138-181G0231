@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AppAlumnos.ViewModel"
+             x:Class="AppAlumnos.Views.InicioSesionView">
+    <ContentPage.Content>
+        <StackLayout Background="#F0E68C">
+            <StackLayout.BindingContext>
+                <vm:AlumnosViewModel></vm:AlumnosViewModel>
+            </StackLayout.BindingContext>
+            <Label Text="¡Bienvenido alumno/a!"
+                FontAttributes="Bold" FontSize="38"
+                HorizontalOptions="FillAndExpand" Padding="15" Background="#BDB76B"/>
+            <Image Margin="0,50" Source="https://www.sneakerlost.es/hubfs/Como-atraer-y-retener-alumnos-extranjeros-01.png"></Image>
+            <Label Margin="0,0,0,10" HorizontalOptions="Center" FontSize="20" TextColor="DimGray" FontAttributes="Bold"
+                   Text="Ingresa tus datos para iniciar sesión" />
+            <Label FontSize="18" Margin="20,5" Text="Usuario:"></Label>
+            <Entry Text="{Binding User}" FontSize="18" Margin="20,5"  ></Entry>
+            <Label FontSize="18" Margin="20,5" >Contraseña:</Label>
+            <Entry Text="{Binding Password}" FontSize="18" Margin="20,5"  IsPassword="True"></Entry>
+            <Button Command="{Binding EntrarCommand}" BackgroundColor="#BDB76B" Padding="15" FontAttributes="Bold" TextColor="DimGray" FontSize="18" Margin="20,5"  Text="Entrar"></Button>
+            <Label Text="{Binding Error}" TextColor="Red" HorizontalOptions="Center" Padding="10"></Label>
+
+            <Label BackgroundColor="#EEE8AA" Padding="5" VerticalOptions="EndAndExpand" HorizontalTextAlignment="Center"
+                   FontAttributes="Bold">Alumnos de 3°B</Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
